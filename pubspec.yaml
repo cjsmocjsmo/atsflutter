@@ -72,7 +72,23 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
+  assets:
+    - images/banner.webp
+    - images/curt.webp
+    - images/kitsap.webp
+    - images/mason.webp
+    - images/pierce.webp
+    - images/firebase2.webp
+    - images/cloudflare.webp
+    - images/flutter_logo2.webp
+    - images/logdrop_overlay.webp
+    - images/smallrigout_overlay.webp
+    - images/topout_overlay.webp
+    - images/BigCedarTreeRemoval.webp
+    - images/webp/
+    - images/gallery/landscape/
+    - images/gallery/portrait/
+    - video/
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 

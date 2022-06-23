@@ -49,14 +49,12 @@ import '../vids/bigcedarremoval.dart';
 //         widejustGettingStarted(context),
 //         widebigCedarRemoval(context),
 
-
-        
 //         // const SizedBox(width: 10, height: 400), //a spacer
 //       ],
 //     );
 //   }
 // }
-// 
+//
 GestureDetector widebigCedarRemoval(BuildContext context) {
   return GestureDetector(
     onTap: () {
@@ -64,8 +62,11 @@ GestureDetector widebigCedarRemoval(BuildContext context) {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return const Scaffold(
-              body: BigCedarRemovalPlayer(),
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Big Cedar Removal'),
+              ),
+              body: const BigCedarRemovalPlayer(),
             );
           },
         ),
@@ -111,8 +112,11 @@ GestureDetector widejustGettingStarted(BuildContext context) {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return const Scaffold(
-              body: JustGettingStartedPlayer(),
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Just Getting Started'),
+              ),
+              body: const JustGettingStartedPlayer(),
             );
           },
         ),
@@ -158,8 +162,11 @@ GestureDetector widebigTreeTopRemoval(BuildContext context) {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return const Scaffold(
-              body: BigTreeTopRemovalPlayer(),
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Big Tree Top Removal'),
+              ),
+              body: const BigTreeTopRemovalPlayer(),
             );
           },
         ),
@@ -205,8 +212,11 @@ GestureDetector makeItSnow(BuildContext context) {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return const Scaffold(
-              body: MakeItSnowPlayer(),
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Make It Snow'),
+              ),
+              body: const MakeItSnowPlayer(),
             );
           },
         ),
@@ -252,8 +262,11 @@ GestureDetector widesnowBoundHemlock(BuildContext context) {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) {
-            return const Scaffold(
-              body: SnowBoundHemlockPlayer(),
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Snow Bound Hemlock'),
+              ),
+              body: const SnowBoundHemlockPlayer(),
             );
           },
         ),
@@ -292,49 +305,52 @@ GestureDetector widesnowBoundHemlock(BuildContext context) {
   );
 }
 
-GestureDetector widedyingWhitePineRemoval(BuildContext context) {
-  return GestureDetector(
-    onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) {
-            return const Scaffold(
-              body: DyingWhitePineRemovalPlayer(),
-            );
-          },
-        ),
-      );
-    },
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: <Widget>[
-          Container(
-            height: 147,
-            width: 295,
-            alignment: const Alignment(0, 0),
-            decoration: BoxDecoration(
-                image: const DecorationImage(
-                  fit: BoxFit.contain,
-                  image: AssetImage("images/webp/DyingWhitePineRemoval.webp"),
-                ),
-                border: Border.all(
-                  color: Colors.greenAccent, //color of border
-                  width: 2, //width of border
-                ),
-                borderRadius: BorderRadius.circular(35)),
-          ),
-          const Text(
-            "Dying White Pine Removal",
-            style: TextStyle(
-              inherit: false,
-              fontSize: 22.0,
-              color: Colors.blueAccent,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
+// GestureDetector widedyingWhitePineRemoval(BuildContext context) {
+//   return GestureDetector(
+//     onTap: () {
+//       Navigator.push(
+//         context,
+//         MaterialPageRoute<void>(
+//           builder: (BuildContext context) {
+//             return Scaffold(
+//               appBar: AppBar(
+//                 title: const Text('Snow Bound Hemlock'),
+//               ),
+//               body: const DyingWhitePineRemovalPlayer(),
+//             );
+//           },
+//         ),
+//       );
+//     },
+//     child: Padding(
+//       padding: const EdgeInsets.all(10.0),
+//       child: Column(
+//         children: <Widget>[
+//           Container(
+//             height: 147,
+//             width: 295,
+//             alignment: const Alignment(0, 0),
+//             decoration: BoxDecoration(
+//                 image: const DecorationImage(
+//                   fit: BoxFit.contain,
+//                   image: AssetImage("images/webp/DyingWhitePineRemoval.webp"),
+//                 ),
+//                 border: Border.all(
+//                   color: Colors.greenAccent, //color of border
+//                   width: 2, //width of border
+//                 ),
+//                 borderRadius: BorderRadius.circular(35)),
+//           ),
+//           const Text(
+//             "Dying White Pine Removal",
+//             style: TextStyle(
+//               inherit: false,
+//               fontSize: 22.0,
+//               color: Colors.blueAccent,
+//             ),
+//           ),
+//         ],
+//       ),
+//     ),
+//   );
+// }

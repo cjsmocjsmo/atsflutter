@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 import 'small/smallimages.dart';
 import 'small/smallmissiontxt.dart';
 import 'small/smallbuttons.dart';
@@ -31,22 +31,19 @@ import 'misc.dart';
 import 'adminpage.dart';
 
 import 'photopage.dart';
+import 'forms/textmessage.dart';
 
 // import 'vids/bigcedarremoval.dart';
 
 void main() {
   runApp(const MyApp());
-  Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +113,24 @@ Widget _textMeIcon(BuildContext context) {
   return IconButton(
     icon: const Icon(Icons.chat),
     tooltip: 'Text Me',
-    onPressed: () {},
+    onPressed: () {
+      
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+            return Scaffold(
+              backgroundColor: Colors.grey,
+              appBar: AppBar(
+                title: const Text("Text Messaging"),
+                backgroundColor: Colors.blue,
+              ),
+              body: const TextMessageForm(),
+            );
+          },
+        ),
+        );
+    },
   );
 }
 
@@ -238,7 +252,7 @@ Widget _buildWideContainer(BuildContext context) {
         children: [
           makeItSnow(context),
           widesnowBoundHemlock(context),
-          widedyingWhitePineRemoval(context),
+          // widedyingWhitePineRemoval(context),
         ],
       ),
       Row(
