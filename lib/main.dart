@@ -1,115 +1,272 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'small/smallimages.dart';
+import 'small/smallmissiontxt.dart';
+import 'small/smallbuttons.dart';
+import 'small/smallmaindiv.dart';
+import 'small/smallreviewdiv.dart';
+import 'small/smallfooter.dart';
+
+import 'normal/normalimages.dart';
+import 'normal/normalmissiontxt.dart';
+import 'normal/normalbuttons.dart';
+import 'normal/normalmaindiv.dart';
+import 'normal/normalreviews.dart';
+import 'normal/normalfooter.dart';
+
+import 'wide/wideimages.dart';
+import 'wide/widemissiontxt.dart';
+import 'wide/widebuttons.dart';
+import 'wide/widemaindiv.dart';
+import 'wide/widereviewdiv.dart';
+import 'wide/widefooter.dart';
+import 'wide/widevidpage.dart';
+
+import 'vids/smallvids.dart';
+import 'vids/normalvids.dart';
+import 'vids/widevids.dart';
+import 'misc.dart';
+import 'adminpage.dart';
+
+import 'photopage.dart';
+
+// import 'vids/bigcedarremoval.dart';
 
 void main() {
   runApp(const MyApp());
+  Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AlphaTree',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.black,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'AlphaTree Service'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+  // Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  // void _incrementCounter() {
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+          _textMeIcon(context),
+          const SizedBox(width: 15, height: 10),
+          _callMeIcon(context),
+          const SizedBox(width: 15, height: 10),
+          scheduleIcon(context),
+          // const SizedBox(width: 20, height: 10),
+        ],
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth > 1024) {
+            return _buildWideContainer(context);
+          } else if (constraints.maxWidth <= 1024 &&
+              constraints.maxWidth > 510) {
+            return _buildNormalContainer(context);
+          } else {
+            return _buildSmallContainer(context);
+          }
+        },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: floatButton(),
     );
   }
+}
+
+Widget _textMeIcon(BuildContext context) {
+  return IconButton(
+    icon: const Icon(Icons.chat),
+    tooltip: 'Text Me',
+    onPressed: () {},
+  );
+}
+
+Widget _callMeIcon(BuildContext context) {
+  return IconButton(
+    icon: const Icon(Icons.call),
+    tooltip: 'Call Me',
+    onPressed: () {
+      launchUrlString("tel://3605168933");
+    },
+  );
+}
+
+Widget _buildSmallContainer(BuildContext context) {
+  return Center(
+    child: ListView(
+      padding: const EdgeInsets.all(8),
+      children: <Widget>[
+        smallBannerImage(),
+        smallGroupImage(),
+        smallMissionText(),
+        smallEstimateButton(context),
+        // smallVideoGallery2Button(context),
+        smallLogDropVid(context),
+        smallMainDiv(context),
+        smallRigOutVid(context),
+        smallEstimateButton(context),
+        smallTopOutVid(context),
+        smallReviewsDiv(),
+        smallReviewsButton(context),
+        smallFooter(),
+      ],
+    ),
+  );
+}
+
+Widget _buildNormalContainer(BuildContext context) {
+  return Center(
+    child: ListView(
+      padding: const EdgeInsets.all(8),
+      children: <Widget>[
+        normalEstimateButton(context),
+        normalBannerImage(),
+        normalMissionText(),
+        normalGroupImage(),
+        normalLogRollVid(context),
+        normalMainDiv(context),
+        normalRigOutVid(context),
+        normalReviewsDiv(),
+        normalReviewsButton(context),
+        normalTopOutVid(context),
+        normalFooter(context),
+      ],
+    ),
+  );
+}
+
+Widget _buildWideContainer(BuildContext context) {
+  return ListView(
+    children: [
+      Center(
+        child: wideEstimateButton(context),
+      ),
+      Wrap(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+        children: [
+          wideGroupImage(),
+          const SizedBox(
+            height: 10.0,
+            width: 90,
+          ),
+          wideMissionText(),
+          const SizedBox(
+            height: 10.0,
+            width: 93,
+          ),
+          wideMainDiv(context),
+        ],
+      ),
+      Wrap(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const SizedBox(
+            height: 10.0,
+            width: 15,
+          ),
+          wideRigOutVid(context),
+          const SizedBox(
+            height: 10.0,
+            width: 140,
+          ),
+          wideLogDropVid(context),
+          const SizedBox(
+            height: 10.0,
+            width: 140,
+          ),
+          wideTopOutVid(context),
+          const SizedBox(
+            height: 10.0,
+            width: 140,
+          ),
+          wideReviewsDiv(context),
+        ],
+      ),
+      Center(
+        child: wideEstimateButton(context),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          widebigCedarRemoval(context),
+          widejustGettingStarted(context),
+          widebigTreeTopRemoval(context),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          makeItSnow(context),
+          widesnowBoundHemlock(context),
+          widedyingWhitePineRemoval(context),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          picWidget(context, "images/gallery/portrait/20200703_122208.webp",
+              "images/gallery/portrait/20200703_122208_thumb.webp"),
+          picWidget(context, "images/gallery/portrait/20200703_122208.webp",
+              "images/gallery/portrait/20200703_122208_thumb.webp"),
+          picWidget(context, "images/gallery/portrait/20200703_122216.webp",
+              "images/gallery/portrait/20200703_122216_thumb.webp"),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            "More Photos",
+            style: TextStyle(
+              fontSize: 28,
+              color: Colors.amber,
+            ),
+          ),
+          landscapePhotosButton(context),
+          portraitPhotosButton(context),
+        ],
+      ),
+      wideFooter(context),
+    ],
+  );
 }
