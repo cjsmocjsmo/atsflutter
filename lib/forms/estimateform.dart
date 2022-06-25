@@ -168,7 +168,7 @@ Padding postEstimateButton(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 40),
             ),
             onPressed: () {

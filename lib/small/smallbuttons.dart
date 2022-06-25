@@ -27,7 +27,7 @@ Padding smallEstimateButton(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 30),
             ),
             onPressed: () {
@@ -77,7 +77,7 @@ Padding smallPhotoGalleryButton(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 20),
             ),
             onPressed: () {
@@ -128,7 +128,7 @@ Padding smallPhotoGallery2Button(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 20),
             ),
             onPressed: () {
@@ -179,7 +179,7 @@ Padding smallVideoGallery2Button(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 20),
             ),
             onPressed: () {
@@ -229,7 +229,7 @@ Padding smallReviewsButton(BuildContext context) {
           TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(16.0),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 40),
             ),
             onPressed: () {

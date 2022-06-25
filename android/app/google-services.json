@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "624798621609",
+    "firebase_url": "https://atsreviews-5afab-default-rtdb.firebaseio.com",
+    "project_id": "atsreviews-5afab",
+    "storage_bucket": "atsreviews-5afab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624798621609:android:7fe5322f4dbc13f892aeb8",
+        "android_client_info": {
+          "package_name": "com.example.atsflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624798621609-8v99aausu08eliq5fpgks8pp3s1ud2m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXPiOD1in5tm_IAD-01BNPSEdBSWb7nIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624798621609-8v99aausu08eliq5fpgks8pp3s1ud2m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

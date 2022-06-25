@@ -50,19 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD6EY04rteTN0HWmOgP3pehny22hgM9bEM',
-    appId: '1:412082119633:web:87a7ca24d1f488725676f0',
-    messagingSenderId: '412082119633',
-    projectId: 'alpha-43515',
-    authDomain: 'alpha-43515.firebaseapp.com',
-    storageBucket: 'alpha-43515.appspot.com',
+    apiKey: 'AIzaSyAca22jv3pCzTPVTDH21UU-f-tAlMseaX0',
+    appId: '1:624798621609:web:e0aa9db26ff0c5b892aeb8',
+    messagingSenderId: '624798621609',
+    projectId: 'atsreviews-5afab',
+    authDomain: 'atsreviews-5afab.firebaseapp.com',
+    databaseURL: 'https://atsreviews-5afab-default-rtdb.firebaseio.com',
+    storageBucket: 'atsreviews-5afab.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAQ0ZeK5N9vT4YMYmJjFiPitSzSdc7hNZ8',
-    appId: '1:412082119633:android:6a1c18889bf8ba8d5676f0',
-    messagingSenderId: '412082119633',
-    projectId: 'alpha-43515',
-    storageBucket: 'alpha-43515.appspot.com',
+    apiKey: 'AIzaSyBXPiOD1in5tm_IAD-01BNPSEdBSWb7nIA',
+    appId: '1:624798621609:android:7fe5322f4dbc13f892aeb8',
+    messagingSenderId: '624798621609',
+    projectId: 'atsreviews-5afab',
+    databaseURL: 'https://atsreviews-5afab-default-rtdb.firebaseio.com',
+    storageBucket: 'atsreviews-5afab.appspot.com',
   );
 }

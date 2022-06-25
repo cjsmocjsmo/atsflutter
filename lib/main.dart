@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 // import 'firebase_options.dart';
 import 'small/smallimages.dart';
 import 'small/smallmissiontxt.dart';
@@ -35,12 +36,18 @@ import 'forms/textmessage.dart';
 
 // import 'vids/bigcedarremoval.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
-  // Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
 }
+
+// void main() {
+//   runApp(const MyApp());
+//   Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+//   );
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
