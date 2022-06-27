@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:firebase_core/firebase_core.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
 import 'small/smallimages.dart';
@@ -32,9 +33,9 @@ import 'misc.dart';
 import 'adminpage.dart';
 
 import 'photopage.dart';
-import 'forms/textmessage.dart';
+// import 'forms/textmessage.dart';
 
-// import 'vids/bigcedarremoval.dart';
+import 'login_view.dart';
 
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -47,14 +48,25 @@ void main() {
   Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
 }
+
+// void main() => runApp(
+//       const MediaQuery(
+//         data: MediaQueryData(),
+//         child: MaterialApp(
+//           home: MyApp(),
+//         ),
+//       ),
+//     );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'AlphaTree',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -66,15 +78,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
-
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -103,9 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth > 1024) {
             return _buildWideContainer(context);
-          } else if (constraints.maxWidth <= 1024 &&
-              constraints.maxWidth > 510) {
-            return _buildNormalContainer(context);
+          // } else if (constraints.maxWidth <= 1024 &&
+          //     constraints.maxWidth > 510) {
+          //   return _buildNormalContainer(context);
           } else {
             return _buildSmallContainer(context);
           }
@@ -121,7 +126,6 @@ Widget _textMeIcon(BuildContext context) {
     icon: const Icon(Icons.chat),
     tooltip: 'Text Me',
     onPressed: () {
-      
       Navigator.push(
         context,
         MaterialPageRoute<void>(
@@ -132,11 +136,12 @@ Widget _textMeIcon(BuildContext context) {
                 title: const Text("Text Messaging"),
                 backgroundColor: Colors.blue,
               ),
-              body: const TextMessageForm(),
+              // body: const TextMessageForm(),
+              body: LoginView(),
             );
           },
         ),
-        );
+      );
     },
   );
 }
@@ -166,7 +171,7 @@ Widget _buildSmallContainer(BuildContext context) {
         smallRigOutVid(context),
         smallEstimateButton(context),
         smallTopOutVid(context),
-        smallReviewsDiv(),
+        smallReviewsDiv(context),
         smallReviewsButton(context),
         smallFooter(),
       ],
@@ -186,7 +191,7 @@ Widget _buildNormalContainer(BuildContext context) {
         normalLogRollVid(context),
         normalMainDiv(context),
         normalRigOutVid(context),
-        normalReviewsDiv(),
+        normalReviewsDiv(context),
         normalReviewsButton(context),
         normalTopOutVid(context),
         normalFooter(context),

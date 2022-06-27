@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'widebuttons.dart';
 
 Center widereviewCard(String rtitle, String sig) {
@@ -43,7 +44,10 @@ Center widereviewCard(String rtitle, String sig) {
   );
 }
 
+
+// final databaseReference = Firestore.instance;
 Column wideReviewsDiv(BuildContext context) {
+  // final databaseReference = Firestore.instance;
   return Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: <Widget>[

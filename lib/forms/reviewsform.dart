@@ -8,6 +8,14 @@ class ReviewsForm extends StatefulWidget {
 }
 
 class _ReviewsFormState extends State<ReviewsForm> {
+  // String id;
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController reviewController = TextEditingController();
+  String? firstName;
+  String? lastName;
+  String? review;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -34,6 +42,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                           ),
                           onSaved: (String? value) {
                             debugPrint('Value for field  as "$value"');
+                            firstName = value;
                           },
                         ),
                       ),
