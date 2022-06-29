@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart';
 
 class ReviewsForm extends StatefulWidget {
-  const ReviewsForm({Key? key}) : super(key: key);
+  ReviewsForm({Key? key}) : super(key: key);
 
   @override
   State<ReviewsForm> createState() => _ReviewsFormState();
@@ -9,12 +10,28 @@ class ReviewsForm extends StatefulWidget {
 
 class _ReviewsFormState extends State<ReviewsForm> {
   // String id;
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController reviewController = TextEditingController();
-  String? firstName;
-  String? lastName;
-  String? review;
+  TextEditingController nameController = TextEditingController();
+  // TextEditingController lastNameController = TextEditingController();
+  TextEditingController emalController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
+  String? name;
+  // String? lastName;
+  String? email;
+  String? message;
+
+  // final String approved;
+  // final String count;
+  // final String delete;
+
+  // final String quarintine;
+  // final String sig;
+  // final String uuid;
+  // final String date;
+  // DateTime dateTime = DateTime.now();
+  // String timeFormat = DateFormat.yMd().format(dateTime);
+  // print(timeFormat); //3/4/2022
+  final now = DateTime.now().toString();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -42,26 +59,27 @@ class _ReviewsFormState extends State<ReviewsForm> {
                           ),
                           onSaved: (String? value) {
                             debugPrint('Value for field  as "$value"');
-                            firstName = value;
+                            name = value;
                           },
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints.tight(const Size(200, 50)),
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                            icon: Icon(Icons.person),
-                            labelText: 'Last Name',
-                          ),
-                          onSaved: (String? value) {
-                            debugPrint('Value for field  as "$value"');
-                          },
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(8.0),
+                    //   child: ConstrainedBox(
+                    //     constraints: BoxConstraints.tight(const Size(200, 50)),
+                    //     child: TextFormField(
+                    //       decoration: const InputDecoration(
+                    //         icon: Icon(Icons.person),
+                    //         labelText: 'Last Name',
+                    //       ),
+                    //       onSaved: (String? value) {
+                    //         debugPrint('Value for field  as "$value"');
+                    //         lastName = value;
+                    //       },
+                    //     ),
+                    //   ),
+                    // ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ConstrainedBox(
@@ -75,6 +93,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                           ),
                           onSaved: (String? value) {
                             debugPrint('Value for field  as "$value"');
+                            email = value;
                           },
                         ),
                       ),
@@ -92,6 +111,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                               maxLines: null,
                               onSaved: (String? value) {
                                 debugPrint('Value for field  as "$value"');
+                                message = value;
                               },
                             ),
                           ),

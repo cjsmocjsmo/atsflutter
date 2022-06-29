@@ -80,3 +80,39 @@ Column wideReviewsDiv(BuildContext context) {
     ],
   );
 }
+
+// class AWideReview extends StatefulWidget {
+//   final String approved;
+//   final String count;
+//   final String delete;
+//   final String email;
+//   final String message;
+//   final String name;
+//   final String quarintine;
+//   final String sig;
+//   final String uuid;
+//   final String date;
+
+//   const AWideReview({
+//     required this.approved,
+//     required this.count,
+//     required this.delete,
+//     required this.email,
+//     required this.message,
+//     required this.name,
+//     required this.quarintine,
+//     required this.sig,
+//     required this.uuid,
+//     required this.date,
+//   });
+
+//   @override
+//   _AWideReviewState createState() => _AWideReviewState();
+// }
+
+// class _AWideReviewState extends State<AWideReview> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return widereviewCard(widget.message, widget.sig);
+//   }
+// }

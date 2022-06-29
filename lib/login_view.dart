@@ -101,8 +101,8 @@ class _SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
-        print(email);
-        print(password);
+        // print(email);
+        // print(password);
         print('hello');
       },
       child: const Text(

@@ -11,12 +11,12 @@ import 'small/smallmaindiv.dart';
 import 'small/smallreviewdiv.dart';
 import 'small/smallfooter.dart';
 
-import 'normal/normalimages.dart';
-import 'normal/normalmissiontxt.dart';
-import 'normal/normalbuttons.dart';
-import 'normal/normalmaindiv.dart';
-import 'normal/normalreviews.dart';
-import 'normal/normalfooter.dart';
+// import 'normal/normalimages.dart';
+// import 'normal/normalmissiontxt.dart';
+// import 'normal/normalbuttons.dart';
+// import 'normal/normalmaindiv.dart';
+// import 'normal/normalreviews.dart';
+// import 'normal/normalfooter.dart';
 
 import 'wide/wideimages.dart';
 import 'wide/widemissiontxt.dart';
@@ -27,7 +27,7 @@ import 'wide/widefooter.dart';
 import 'wide/widevidpage.dart';
 
 import 'vids/smallvids.dart';
-import 'vids/normalvids.dart';
+// import 'vids/normalvids.dart';
 import 'vids/widevids.dart';
 import 'misc.dart';
 import 'adminpage.dart';
@@ -37,19 +37,21 @@ import 'photopage.dart';
 
 import 'login_view.dart';
 
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(const MyApp());
-// }
-
-void main() {
-  runApp(const MyApp());
-  Firebase.initializeApp(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  runApp(MyApp());
 }
+
+// void main() {
+//   runApp(const MyApp());
+//   Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+//   );
+
+// }
 
 // void main() => runApp(
 //       const MediaQuery(
@@ -62,7 +64,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -107,12 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth > 1024) {
-            return _buildWideContainer(context);
-          // } else if (constraints.maxWidth <= 1024 &&
-          //     constraints.maxWidth > 510) {
-          //   return _buildNormalContainer(context);
+            return buildWideContainer(context);
+            // } else if (constraints.maxWidth <= 1024 &&
+            //     constraints.maxWidth > 510) {
+            //   return _buildNormalContainer(context);
           } else {
-            return _buildSmallContainer(context);
+            return buildSmallContainer(context);
           }
         },
       ),
@@ -156,14 +158,14 @@ Widget _callMeIcon(BuildContext context) {
   );
 }
 
-Widget _buildSmallContainer(BuildContext context) {
+Widget buildSmallContainer(BuildContext context) {
   return Center(
     child: ListView(
       padding: const EdgeInsets.all(8),
       children: <Widget>[
-        smallBannerImage(),
-        smallGroupImage(),
-        smallMissionText(),
+        const SmallBannerImage(),
+        const SmallGroupImage(),
+        const SmallMissionText(),
         smallEstimateButton(context),
         // smallVideoGallery2Button(context),
         smallLogDropVid(context),
@@ -171,7 +173,7 @@ Widget _buildSmallContainer(BuildContext context) {
         smallRigOutVid(context),
         smallEstimateButton(context),
         smallTopOutVid(context),
-        smallReviewsDiv(context),
+        const SmallReviewImage(),
         smallReviewsButton(context),
         smallFooter(),
       ],
@@ -179,28 +181,28 @@ Widget _buildSmallContainer(BuildContext context) {
   );
 }
 
-Widget _buildNormalContainer(BuildContext context) {
-  return Center(
-    child: ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        normalEstimateButton(context),
-        normalBannerImage(),
-        normalMissionText(),
-        normalGroupImage(),
-        normalLogRollVid(context),
-        normalMainDiv(context),
-        normalRigOutVid(context),
-        normalReviewsDiv(context),
-        normalReviewsButton(context),
-        normalTopOutVid(context),
-        normalFooter(context),
-      ],
-    ),
-  );
-}
+// Widget _buildNormalContainer(BuildContext context) {
+//   return Center(
+//     child: ListView(
+//       padding: const EdgeInsets.all(8),
+//       children: <Widget>[
+//         normalEstimateButton(context),
+//         normalBannerImage(),
+//         normalMissionText(),
+//         normalGroupImage(),
+//         normalLogRollVid(context),
+//         normalMainDiv(context),
+//         normalRigOutVid(context),
+//         normalReviewsDiv(context),
+//         normalReviewsButton(context),
+//         normalTopOutVid(context),
+//         normalFooter(context),
+//       ],
+//     ),
+//   );
+// }
 
-Widget _buildWideContainer(BuildContext context) {
+Widget buildWideContainer(BuildContext context) {
   return ListView(
     children: [
       Center(

@@ -167,10 +167,10 @@ Column smallFooter() {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
-            child: flutterImages("images/flutter_logo2.webp"),
+            child: footerImages("images/flutter_logo2.webp"),
           ),
           Expanded(
-            child: firebaseImages("images/firebase2.webp"),
+            child: footerImages("images/firebase2.webp"),
           ),
         ],
       ),
@@ -178,7 +178,7 @@ Column smallFooter() {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
-            child: cloudflareImages("images/cloudflare.webp"),
+            child: footerImages("images/cloudflare.webp"),
           ),
         ],
       ),

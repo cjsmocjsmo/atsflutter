@@ -39,7 +39,7 @@ Padding wideReviewsButton(BuildContext context) {
                         title: const Text("Reviews"),
                         backgroundColor: Colors.blue,
                       ),
-                      body: const ReviewsForm(),
+                      body: ReviewsForm(),
                     );
                   },
                 ),
