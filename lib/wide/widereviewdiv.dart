@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
-import 'widebuttons.dart';
+// import 'reviewsbutton.dart';
 
 Center widereviewCard(String rtitle, String sig) {
   return Center(
@@ -71,7 +71,7 @@ Column wideReviewsDiv(BuildContext context) {
               widereviewCard("Curt did a great job \n Curt did a great job \n Curt did a great job", "Charlie"),
               widereviewCard("Curt did a great job", "Charlie"),
               widereviewCard("Curt did a great job", "Charlie"),
-              wideReviewsButton(context),
+              // wideReviewsButton(context),
             ],
           ),
         ),

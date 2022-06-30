@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'smallbuttons.dart';
-import 'smallfooter.dart';
+// import 'smallbuttons.dart';
+// import 'smallfooter.dart';
 
 Column smallMainDiv(BuildContext context) {
   return Column(
@@ -22,7 +22,7 @@ Column smallMainDiv(BuildContext context) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              smallPhoneNumber(),
+              // PhoneNumber(),
               const Text(
                 "Serving ",
                 style: TextStyle(
@@ -54,9 +54,9 @@ Column smallMainDiv(BuildContext context) {
                   ],
                 ),
               ),
-              smallPhotoGalleryButton(context),
-              smallPhotoGallery2Button(context),
-              smallVideoGallery2Button(context),
+              // smallPhotoGalleryButton(context),
+              // smallPhotoGallery2Button(context),
+              // smallVideoGallery2Button(context),
             ],
           ),
         ),

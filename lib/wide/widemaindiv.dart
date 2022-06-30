@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widefooter.dart';
+import '../footercards.dart';
 
 Column wideMainDiv(BuildContext context) {
   return Column(
@@ -22,7 +22,7 @@ Column wideMainDiv(BuildContext context) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              widePhoneNumber(),
+              phoneNumber(),
               const Text(
                 "Serving ",
                 style: TextStyle(

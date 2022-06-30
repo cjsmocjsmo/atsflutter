@@ -1,8 +1,8 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'normalimages.dart';
-import 'normalbuttons.dart';
+// import 'normalimages.dart';
+// import 'normalbuttons.dart';
 // import 'normalfooter.dart';
 // import 'normalbuttons.dart';
 
@@ -26,7 +26,7 @@ Column normalMainDiv(BuildContext context) {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              normalPhoneNumber(),
+              // phoneNumber(),
               const Text(
                 "Serving ",
                 style: TextStyle(
@@ -73,9 +73,9 @@ Column normalMainDiv(BuildContext context) {
                   ],
                 ),
               ),
-              normalPhotoGalleryButton(context),
-              normalPhotoGallery2Button(context),
-              normalVideoGalleryButton(context),
+              // normalPhotoGalleryButton(context),
+              // normalPhotoGallery2Button(context),
+              // normalVideoGalleryButton(context),
             ],
           ),
         ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 
 class ReviewsForm extends StatefulWidget {
-  ReviewsForm({Key? key}) : super(key: key);
+  const ReviewsForm({Key? key}) : super(key: key);
 
   @override
   State<ReviewsForm> createState() => _ReviewsFormState();
