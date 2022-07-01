@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'photopage.dart';
 
+class PhotoGalleryButton2 extends StatelessWidget {
+  const PhotoGalleryButton2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth > 1024) {
+          return const NormalPhotoGallery2Button();
+        } else if (constraints.maxWidth <= 1024 && constraints.maxWidth > 510) {
+          return const NormalPhotoGallery2Button();
+        } else {
+          return const SmallPhotoGallery2Button();
+        }
+      },
+    );
+  }
+}
+
 class SmallPhotoGallery2Button extends StatelessWidget {
   const SmallPhotoGallery2Button({Key? key}) : super(key: key);
   @override
@@ -41,7 +60,7 @@ class SmallPhotoGallery2Button extends StatelessWidget {
                           title: const Text("Photos"),
                           backgroundColor: Colors.blue,
                         ),
-                        body: portraitPhotoGrid(),
+                        body: const PortraitPhotosGrid(),
                       );
                     },
                   ),
@@ -96,7 +115,7 @@ class NormalPhotoGallery2Button extends StatelessWidget {
                           title: const Text("Photos"),
                           backgroundColor: Colors.blue,
                         ),
-                        body: portraitPhotoGrid(),
+                        body: const PortraitPhotosGrid(),
                       );
                     },
                   ),

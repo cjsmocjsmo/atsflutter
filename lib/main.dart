@@ -41,6 +41,7 @@ import 'banner.dart';
 import 'groupimage.dart';
 import 'estimatebutton.dart';
 import 'footer.dart';
+import 'reviewsdiv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -100,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
           EstimateButton(),
           GroupImage(),
           MissionText(),
+          Reviews(),
 
           // LayoutBuilder(
           //   builder: (BuildContext context, BoxConstraints constraints) {
