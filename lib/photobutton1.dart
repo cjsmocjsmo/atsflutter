@@ -168,7 +168,7 @@ class SmallPhotoGalleryButton extends StatelessWidget {
                           title: const Text("Photos"),
                           backgroundColor: Colors.blue,
                         ),
-                        body: const PortraitPhotosGrid(),
+                        body: const LandscapePhotosGrid(),
                       );
                     },
                   ),

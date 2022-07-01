@@ -50,42 +50,42 @@ class PicWidget extends StatelessWidget {
   }
 }
 
-class LandscapePhotosButton extends StatelessWidget {
-  const LandscapePhotosButton({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) {
-                return Scaffold(
-                  appBar: AppBar(
-                    title: const Text("More Photos"),
-                    backgroundColor: Colors.blue,
-                  ),
-                  body: const LandscapePhotosGrid(),
-                );
-              },
-            ),
-          );
-        },
-        child: const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Text(
-            "Landscape",
-            style: TextStyle(
-              fontSize: 28,
-              color: Colors.blueAccent,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class LandscapePhotosButton extends StatelessWidget {
+//   const LandscapePhotosButton({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: TextButton(
+//         onPressed: () {
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute<void>(
+//               builder: (BuildContext context) {
+//                 return Scaffold(
+//                   appBar: AppBar(
+//                     title: const Text("More Photos"),
+//                     backgroundColor: Colors.blue,
+//                   ),
+//                   body: const LandscapePhotosGrid(),
+//                 );
+//               },
+//             ),
+//           );
+//         },
+//         child: const Padding(
+//           padding: EdgeInsets.all(20.0),
+//           child: Text(
+//             "Landscape",
+//             style: TextStyle(
+//               fontSize: 28,
+//               color: Colors.blueAccent,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class LandscapePhotosGrid extends StatelessWidget {
   const LandscapePhotosGrid({Key? key}) : super(key: key);
@@ -137,42 +137,42 @@ class LandscapePhotosGrid extends StatelessWidget {
   }
 }
 
-class PortraitPhotosButton extends StatelessWidget {
-  const PortraitPhotosButton({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) {
-                return Scaffold(
-                  appBar: AppBar(
-                    title: const Text("More Photos"),
-                    backgroundColor: Colors.blue,
-                  ),
-                  body: const PortraitPhotosGrid(),
-                );
-              },
-            ),
-          );
-        },
-        child: const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Text(
-            "Portrait",
-            style: TextStyle(
-              fontSize: 28,
-              color: Colors.blueAccent,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class PortraitPhotosButton extends StatelessWidget {
+//   const PortraitPhotosButton({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: TextButton(
+//         onPressed: () {
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute<void>(
+//               builder: (BuildContext context) {
+//                 return Scaffold(
+//                   appBar: AppBar(
+//                     title: const Text("More Photos"),
+//                     backgroundColor: Colors.blue,
+//                   ),
+//                   body: const PortraitPhotosGrid(),
+//                 );
+//               },
+//             ),
+//           );
+//         },
+//         child: const Padding(
+//           padding: EdgeInsets.all(20.0),
+//           child: Text(
+//             "Portrait",
+//             style: TextStyle(
+//               fontSize: 28,
+//               color: Colors.blueAccent,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class PortraitPhotosGrid extends StatelessWidget {
   const PortraitPhotosGrid({Key? key}) : super(key: key);
