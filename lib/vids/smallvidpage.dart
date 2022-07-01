@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../vids/dyingwhitepineremoval.dart';
-import '../vids/snowboundhemlock.dart';
-import '../vids/makeitsnow.dart';
-import '../vids/bigtreetopremoval.dart';
-import '../vids/justgettingstarted.dart';
-import '../vids/bigcedarremoval.dart';
+import 'dyingwhitepineremoval.dart';
+import 'snowboundhemlock.dart';
+import 'makeitsnow.dart';
+import 'bigtreetopremoval.dart';
+import 'justgettingstarted.dart';
+import 'bigcedarremoval.dart';
 
-class NormalVideoPlayer extends StatelessWidget {
-  const NormalVideoPlayer({super.key});
+class SmallVideoPlayer extends StatelessWidget {
+  const SmallVideoPlayer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,32 +33,25 @@ class _VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        Center(
-          child: Wrap(
-            children: <Widget>[
-              dyingWhitePineRemoval(context),
-              snowBoundHemlock(context),
-            ],
-          ),
-        ),
-        Center(
-          child: Wrap(
-            children: <Widget>[
-              makeItSnow(context),
-              bigTreeTopRemoval(context),
-            ],
-          ),
-        ),
-        Center(
-          child: Wrap(
-            children: <Widget>[
-              justGettingStarted(context),
-              bigCedarRemoval(context),
-            ],
-          ),
-        ),
+      children: <Widget>[
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //   children: <Widget>[
+        //     vidTest(context),
+        //     vidTest(context),
+        //   ],
+        // ),
+        // BigCedarRemovalPlayer(),
+        bigCedarRemoval(context),
+        dyingWhitePineRemoval(context),
+        snowBoundHemlock(context),
+        makeItSnow(context),
+        
+        justGettingStarted(context),
+        bigCedarRemoval(context),
 
+
+        
         // const SizedBox(width: 10, height: 400), //a spacer
       ],
     );

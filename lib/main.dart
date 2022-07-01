@@ -4,37 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
-// import 'small/smallimages.dart';
-// // import 'small/smallmissiontxt.dart';
-// import 'small/smallbuttons.dart';
-// import 'small/smallmaindiv.dart';
-// import 'small/smallreviewdiv.dart';
-// import 'small/smallfooter.dart';
 
-// import 'normal/normalimages.dart';
-// import 'normal/normalmissiontxt.dart';
-// import 'normal/normalbuttons.dart';
-// import 'normal/normalmaindiv.dart';
-// import 'normal/normalreviews.dart';
-// import 'normal/normalfooter.dart';
-
-// import 'wide/wideimages.dart';
-// import 'wide/widemissiontxt.dart';
-// import 'wide/widebuttons.dart';
-// import 'wide/widemaindiv.dart';
-// import 'wide/widereviewdiv.dart';
-// import 'wide/widefooter.dart';
-// import 'wide/widevidpage.dart';
-
-// import 'vids/smallvids.dart';
-// // import 'vids/normalvids.dart';
-// import 'vids/widevids.dart';
 import 'misc.dart';
 import 'adminpage.dart';
-
-// import 'photopage.dart';
-// import 'forms/textmessage.dart';
-
 import 'login_view.dart';
 import 'message.dart';
 import 'banner.dart';
@@ -42,6 +14,8 @@ import 'groupimage.dart';
 import 'estimatebutton.dart';
 import 'footer.dart';
 import 'reviewsdiv.dart';
+import 'maindiv.dart';
+import 'reviewsbutton.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,7 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
           EstimateButton(),
           GroupImage(),
           MissionText(),
+          MainDiv(),
           Reviews(),
+          ReviewsButton(),
 
           // LayoutBuilder(
           //   builder: (BuildContext context, BoxConstraints constraints) {

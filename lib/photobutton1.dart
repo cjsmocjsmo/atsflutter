@@ -174,7 +174,7 @@ class SmallPhotoGalleryButton extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Photo Gallery 2'),
+              child: const Text('Photo Gallery'),
             ),
           ],
         ),

@@ -1,4 +1,24 @@
 import 'package:flutter/material.dart';
+import '/vids/smallvidpage.dart';
+
+class VideoGalleryButton extends StatelessWidget {
+  const VideoGalleryButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth > 1024) {
+          return const WideVideoGalleryButton();
+        } else if (constraints.maxWidth <= 1024 && constraints.maxWidth > 510) {
+          return const NormalVideoGalleryButton();
+        } else {
+          return const SmallVideoGalleryButton();
+        }
+      },
+    );
+  }
+}
 
 class SmallVideoGalleryButton extends StatelessWidget {
   const SmallVideoGalleryButton({Key? key}) : super(key: key);
@@ -39,7 +59,7 @@ class SmallVideoGalleryButton extends StatelessWidget {
                           title: const Text("Videos"),
                           backgroundColor: Colors.blue,
                         ),
-                        // body: const SmallVideoPlayer(),
+                        body: const SmallVideoPlayer(),
                       );
                     },
                   ),

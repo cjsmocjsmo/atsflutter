@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../vids/dyingwhitepineremoval.dart';
-import '../vids/snowboundhemlock.dart';
-import '../vids/makeitsnow.dart';
-import '../vids/bigtreetopremoval.dart';
-import '../vids/justgettingstarted.dart';
-import '../vids/bigcedarremoval.dart';
+import 'dyingwhitepineremoval.dart';
+import 'snowboundhemlock.dart';
+import 'makeitsnow.dart';
+import 'bigtreetopremoval.dart';
+import 'justgettingstarted.dart';
+import 'bigcedarremoval.dart';
 
-class SmallVideoPlayer extends StatelessWidget {
-  const SmallVideoPlayer({super.key});
+class NormalVideoPlayer extends StatelessWidget {
+  const NormalVideoPlayer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +34,31 @@ class _VideoPageState extends State<VideoPage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: <Widget>[
-        //     vidTest(context),
-        //     vidTest(context),
-        //   ],
-        // ),
+        Center(
+          child: Wrap(
+            children: <Widget>[
+              dyingWhitePineRemoval(context),
+              snowBoundHemlock(context),
+            ],
+          ),
+        ),
+        Center(
+          child: Wrap(
+            children: <Widget>[
+              makeItSnow(context),
+              bigTreeTopRemoval(context),
+            ],
+          ),
+        ),
+        Center(
+          child: Wrap(
+            children: <Widget>[
+              justGettingStarted(context),
+              bigCedarRemoval(context),
+            ],
+          ),
+        ),
 
-        dyingWhitePineRemoval(context),
-        snowBoundHemlock(context),
-        makeItSnow(context),
-        bigTreeTopRemoval(context),
-        justGettingStarted(context),
-        bigCedarRemoval(context),
-
-
-        
         // const SizedBox(width: 10, height: 400), //a spacer
       ],
     );

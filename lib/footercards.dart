@@ -5,7 +5,7 @@ Text fText(String message, double size) {
     message,
     style: TextStyle(
       fontSize: size,
-      color: Colors.black,
+      color: Colors.white,
     ),
   );
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 // import '../vids/dyingwhitepineremoval.dart';
-import '../vids/snowboundhemlock.dart';
-import '../vids/makeitsnow.dart';
-import '../vids/bigtreetopremoval.dart';
-import '../vids/justgettingstarted.dart';
-import '../vids/bigcedarremoval.dart';
+import 'snowboundhemlock.dart';
+import 'makeitsnow.dart';
+import 'bigtreetopremoval.dart';
+import 'justgettingstarted.dart';
+import 'bigcedarremoval.dart';
 
 // class WideVideoPlayer extends StatelessWidget {
 //   const WideVideoPlayer({super.key});
