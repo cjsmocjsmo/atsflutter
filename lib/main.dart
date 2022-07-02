@@ -16,6 +16,9 @@ import 'footer.dart';
 import 'reviewsdiv.dart';
 import 'maindiv.dart';
 import 'reviewsbutton.dart';
+import 'mainvidone.dart';
+import 'mainvidtwo.dart';
+import 'mainvidthree.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -75,9 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
           EstimateButton(),
           GroupImage(),
           MissionText(),
+          LogDropVid(),
           MainDiv(),
+          RigOutVid(),
           Reviews(),
           ReviewsButton(),
+          TopOutVid(),
 
           // LayoutBuilder(
           //   builder: (BuildContext context, BoxConstraints constraints) {
