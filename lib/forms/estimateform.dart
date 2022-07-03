@@ -197,8 +197,8 @@ class _EstimateFormState extends State<EstimateForm> {
                                 var day = now.day;
                                 var hr = now.hour;
                                 var min = now.minute;
-                                String revs = "reviews";
-                                var docname = revs +
+                                String est = "estimate";
+                                var docname = est +
                                     year.toString() +
                                     month.toString() +
                                     day.toString() +
@@ -219,7 +219,7 @@ class _EstimateFormState extends State<EstimateForm> {
                                 docData['uuid'] = uuid.toString();
                                 var db = FirebaseFirestore.instance;
                                 db
-                                    .collection("reviews")
+                                    .collection("estimate")
                                     .doc(docname)
                                     .set(docData);
                                 Navigator.pop(context);

@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(width: 15, height: 10),
           _callMeIcon(context),
           const SizedBox(width: 15, height: 10),
-          scheduleIcon(context),
+          const AdminPanel(),
           const SizedBox(width: 15, height: 10),
           // const SizedBox(width: 20, height: 10),
         ],
