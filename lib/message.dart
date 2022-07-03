@@ -17,7 +17,7 @@ class MissionText extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth > 1024) {
         return Container(
-          height: 300,
+          height: 350,
           width: 500,
           alignment: const Alignment(0, 0),
           color: Colors.black,
@@ -40,6 +40,7 @@ class MissionText extends StatelessWidget {
       } else if (constraints.maxWidth <= 1024 && constraints.maxWidth > 510) {
         return Container(
           height: 220,
+          margin: const EdgeInsets.only(top: 15.0),
           alignment: const Alignment(0, 0),
           color: Colors.black,
           child: Padding(
@@ -58,14 +59,15 @@ class MissionText extends StatelessWidget {
         );
       } else {
         return Container(
-          height: 350,
+          height: 380,
           width: 500,
+          
           alignment: const Alignment(0, 0),
           color: Colors.black,
           child: Padding(
             padding: const EdgeInsets.only(left: 17.0, right: 17.0),
             child: ConstrainedBox(
-              constraints: BoxConstraints.tight(const Size(500, 300)),
+              constraints: BoxConstraints.tight(const Size(500, 380)),
               child: Text(
                 missionText,
                 style: const TextStyle(
@@ -110,7 +112,7 @@ class SmallMissionText extends StatelessWidget {
   Widget build(BuildContext context) {
 // Container smallMissionText() {
     return Container(
-      height: 210,
+      height: 230,
       alignment: const Alignment(0, 0),
       color: Colors.black,
       child: const Padding(
@@ -132,16 +134,4 @@ class SmallMissionText extends StatelessWidget {
     );
   }
 }
-
-
-
-// const widemissionText =
-//     "At Alpha Tree Service, we specialize in removing trees from "
-//     "some of the tightest areas around homes in Washington. We have "
-//     "the tools to get your job done safely, with more than 15 year "
-//     "of experience in the tree industry. The weather can be unpredictable "
-//     "so we are here to help whether the tree has fallen on your home "
-//     "or in your yard. We will leave your property as we found it or "
-//     "better! We look forward to helping you with all your tree care needs.";
-
 

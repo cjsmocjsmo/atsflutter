@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'datepicker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EstimateForm extends StatefulWidget {
   const EstimateForm({Key? key}) : super(key: key);
@@ -9,6 +10,24 @@ class EstimateForm extends StatefulWidget {
 }
 
 class _EstimateFormState extends State<EstimateForm> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController citystateController = TextEditingController();
+  TextEditingController telephoneController = TextEditingController();
+  TextEditingController emalController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  String? name;
+  String? address;
+  String? citystate;
+  String? telephone;
+  String? email;
+  String? message;
+  String? date;
+
+  final docData = {"uuid": "10"};
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -16,6 +35,7 @@ class _EstimateFormState extends State<EstimateForm> {
       child: Center(
         child: FocusTraversalGroup(
           child: Form(
+            key: _formKey,
             autovalidateMode: AutovalidateMode.always,
             onChanged: () {
               Form.of(primaryFocus!.context!)!.save();
@@ -34,6 +54,7 @@ class _EstimateFormState extends State<EstimateForm> {
                       ),
                       onSaved: (String? value) {
                         debugPrint('Value for field  as "$value"');
+                        name = value;
                       },
                     ),
                   ),
@@ -50,6 +71,7 @@ class _EstimateFormState extends State<EstimateForm> {
                       ),
                       onSaved: (String? value) {
                         debugPrint('Value for field  as "$value"');
+                        address = value;
                       },
                     ),
                   ),
@@ -66,6 +88,7 @@ class _EstimateFormState extends State<EstimateForm> {
                       ),
                       onSaved: (String? value) {
                         debugPrint('Value for field  as "$value"');
+                        citystate = value;
                       },
                     ),
                   ),
@@ -82,6 +105,7 @@ class _EstimateFormState extends State<EstimateForm> {
                       ),
                       onSaved: (String? value) {
                         debugPrint('Value for field  as "$value"');
+                        telephone = value;
                       },
                     ),
                   ),
@@ -98,6 +122,7 @@ class _EstimateFormState extends State<EstimateForm> {
                       ),
                       onSaved: (String? value) {
                         debugPrint('Value for field  as "$value"');
+                        email = value;
                       },
                     ),
                   ),
@@ -121,6 +146,7 @@ class _EstimateFormState extends State<EstimateForm> {
                           maxLines: null,
                           onSaved: (String? value) {
                             debugPrint('Value for field  as "$value"');
+                            message = value;
                           },
                         ),
                       ),
@@ -132,7 +158,96 @@ class _EstimateFormState extends State<EstimateForm> {
                         color: Colors.grey,
                       ),
                     ),
-                    postEstimateButton(context),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned.fill(
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: <Color>[
+                                      Color.fromARGB(0, 0, 0, 0),
+                                      Colors.blueAccent,
+                                      // Color.fromARGB(255, 141, 29, 29),
+                                      Color.fromARGB(0, 0, 0, 0),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.all(16.0),
+                                foregroundColor: Colors.white,
+                                textStyle: const TextStyle(fontSize: 40),
+                              ),
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text("Processing Data")),
+                                  );
+                                }
+                                var now = DateTime.now();
+                                var year = now.year;
+                                var month = now.month;
+                                var day = now.day;
+                                var hr = now.hour;
+                                var min = now.minute;
+                                String revs = "reviews";
+                                var docname = revs +
+                                    year.toString() +
+                                    month.toString() +
+                                    day.toString() +
+                                    hr.toString() +
+                                    min.toString();
+                                var UUID = year.toString() +
+                                    month.toString() +
+                                    day.toString() +
+                                    hr.toString() +
+                                    min.toString();
+
+                                docData['name'] = name.toString();
+                                docData['address'] = address.toString();
+                                docData['citystate'] = citystate.toString();
+                                docData['telephone'] = telephone.toString();
+                                docData['email'] = email.toString();
+                                docData['message'] = message.toString();
+                                docData['uuid'] = UUID.toString();
+                                var db = FirebaseFirestore.instance;
+                                db
+                                    .collection("reviews")
+                                    .doc(docname)
+                                    .set(docData);
+                                print(docname);
+                                print(docData);
+
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute<void>(
+                                //     builder: (BuildContext context) {
+                                //       return Scaffold(
+                                //         appBar: AppBar(
+                                //           title: const Text("Back"),
+                                //           backgroundColor: Colors.blue,
+                                //         ),
+                                //         body: const EstimateForm(),
+                                //       );
+                                //     },
+                                //   ),
+                                // );
+                                Navigator.pop(context);
+                              },
+                              child: const Center(
+                                  child: Text('Schedule Estimate')),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -144,53 +259,53 @@ class _EstimateFormState extends State<EstimateForm> {
   }
 }
 
-Padding postEstimateButton(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.all(10.0),
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(14),
-      child: Stack(
-        children: <Widget>[
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: <Color>[
-                    Color.fromARGB(0, 0, 0, 0),
-                    Colors.blueAccent,
-                    // Color.fromARGB(255, 141, 29, 29),
-                    Color.fromARGB(0, 0, 0, 0),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.all(16.0),
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 40),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    return Scaffold(
-                      appBar: AppBar(
-                        title: const Text("Back"),
-                        backgroundColor: Colors.blue,
-                      ),
-                      body: const EstimateForm(),
-                    );
-                  },
-                ),
-              );
-            },
-            child: const Center(child: Text('Schedule Estimate')),
-          ),
-        ],
-      ),
-    ),
-  );
-}
+// Padding postEstimateButton(BuildContext context) {
+//   return Padding(
+//     padding: const EdgeInsets.all(10.0),
+//     child: ClipRRect(
+//       borderRadius: BorderRadius.circular(14),
+//       child: Stack(
+//         children: <Widget>[
+//           Positioned.fill(
+//             child: Container(
+//               decoration: const BoxDecoration(
+//                 gradient: LinearGradient(
+//                   colors: <Color>[
+//                     Color.fromARGB(0, 0, 0, 0),
+//                     Colors.blueAccent,
+//                     // Color.fromARGB(255, 141, 29, 29),
+//                     Color.fromARGB(0, 0, 0, 0),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           TextButton(
+//             style: TextButton.styleFrom(
+//               padding: const EdgeInsets.all(16.0),
+//               foregroundColor: Colors.white,
+//               textStyle: const TextStyle(fontSize: 40),
+//             ),
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute<void>(
+//                   builder: (BuildContext context) {
+//                     return Scaffold(
+//                       appBar: AppBar(
+//                         title: const Text("Back"),
+//                         backgroundColor: Colors.blue,
+//                       ),
+//                       body: const EstimateForm(),
+//                     );
+//                   },
+//                 ),
+//               );
+//             },
+//             child: const Center(child: Text('Schedule Estimate')),
+//           ),
+//         ],
+//       ),
+//     ),
+//   );
+// }

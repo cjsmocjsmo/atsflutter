@@ -113,7 +113,7 @@ class WideVideoGalleryButton extends StatelessWidget {
                           title: const Text("Videos"),
                           backgroundColor: Colors.blue,
                         ),
-                        // body: const SmallVideoPlayer(),
+                        body: const SmallVideoPlayer(),
                       );
                     },
                   ),
@@ -170,7 +170,7 @@ class NormalVideoGalleryButton extends StatelessWidget {
                           title: const Text("Videos"),
                           backgroundColor: Colors.blue,
                         ),
-                        // body: const NormalVideoPlayer(),
+                        body: const SmallVideoPlayer(),
                       );
                     },
                   ),

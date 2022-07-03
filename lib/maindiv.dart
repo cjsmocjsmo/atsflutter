@@ -108,7 +108,7 @@ class NormalMainDiv extends StatelessWidget {
       children: <Widget>[
         Container(
           margin: const EdgeInsets.only(top: 20),
-          height: 500,
+          height: 580,
           alignment: const Alignment(0, 0),
           decoration: BoxDecoration(
               color: const Color.fromARGB(255, 47, 28, 218),
@@ -172,7 +172,8 @@ class NormalPicWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 0.5, right: 0.5),
-      height: 190,
+      // height: 400,
+      // width: 190,
       alignment: const Alignment(0, 0),
       decoration: BoxDecoration(
         // color: const Color.fromARGB(255, 47, 28, 218),
@@ -183,7 +184,11 @@ class NormalPicWidget extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(5),
       ),
-      child: Image.asset(pic),
+      child: Image.asset(
+        pic,
+        // height: 332,
+        width: 170,
+      ),
     );
   }
 }

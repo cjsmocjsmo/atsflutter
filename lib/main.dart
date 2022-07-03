@@ -69,37 +69,67 @@ class _MyHomePageState extends State<MyHomePage> {
           _callMeIcon(context),
           const SizedBox(width: 15, height: 10),
           scheduleIcon(context),
+          const SizedBox(width: 15, height: 10),
           // const SizedBox(width: 20, height: 10),
         ],
       ),
-      body: ListView(
-        children: const <Widget>[
-          BannerImage(),
-          EstimateButton(),
-          GroupImage(),
-          MissionText(),
-          LogDropVid(),
-          MainDiv(),
-          RigOutVid(),
-          Reviews(),
-          ReviewsButton(),
-          TopOutVid(),
-
-          // LayoutBuilder(
-          //   builder: (BuildContext context, BoxConstraints constraints) {
-          //     if (constraints.maxWidth > 1024) {
-          //       return buildWideContainer(context);
-          //       // } else if (constraints.maxWidth <= 1024 &&
-          //       //     constraints.maxWidth > 510) {
-          //       //   return _buildNormalContainer(context);
-          //     } else {
-          //       return buildSmallContainer(context);
-          //     }
-          //   },
-          // ),
-          Footer(),
-        ],
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth > 1024) {
+            return ListView(
+              children: const <Widget>[
+                // BannerImage(),
+                EstimateButton(),
+                GroupImage(),
+                MissionText(),
+                LogDropVid(),
+                MainDiv(),
+                RigOutVid(),
+                Reviews(),
+                ReviewsButton(),
+                TopOutVid(),
+                Footer(),
+              ],
+            );
+            // } else if (constraints.maxWidth <= 1024 &&
+            //     constraints.maxWidth > 510) {
+            //   return _buildNormalContainer(context);
+          } else {
+            return ListView(
+              children: const <Widget>[
+                BannerImage(),
+                EstimateButton(),
+                GroupImage(),
+                MissionText(),
+                LogDropVid(),
+                MainDiv(),
+                RigOutVid(),
+                Reviews(),
+                ReviewsButton(),
+                TopOutVid(),
+                Footer(),
+              ],
+            );
+          }
+        },
       ),
+
+      // ListView(
+      //   children: const <Widget>[
+      //     BannerImage(),
+      //     EstimateButton(),
+      //     GroupImage(),
+      //     MissionText(),
+      //     LogDropVid(),
+      //     MainDiv(),
+      //     RigOutVid(),
+      //     Reviews(),
+      //     ReviewsButton(),
+      //     TopOutVid(),
+      //     Footer(),
+
+      //   ],
+      // ),
       floatingActionButton: floatButton(),
     );
   }

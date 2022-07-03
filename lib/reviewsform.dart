@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ReviewsForm extends StatefulWidget {
   const ReviewsForm({Key? key}) : super(key: key);
@@ -9,29 +9,22 @@ class ReviewsForm extends StatefulWidget {
 }
 
 class _ReviewsFormState extends State<ReviewsForm> {
-  // String id;
+  final _formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
-  // TextEditingController lastNameController = TextEditingController();
   TextEditingController emalController = TextEditingController();
   TextEditingController messageController = TextEditingController();
-  String? name;
-  // String? lastName;
-  String? email;
-  String? message;
+  String? Name;
 
-  // final String approved;
-  // final String count;
-  // final String delete;
-
-  // final String quarintine;
-  // final String sig;
-  // final String uuid;
-  // final String date;
-  // DateTime dateTime = DateTime.now();
-  // String timeFormat = DateFormat.yMd().format(dateTime);
-  // print(timeFormat); //3/4/2022
-  final now = DateTime.now().toString();
-  
+  String? Email;
+  String? Message;
+  final docData = {
+    "Approved": "no",
+    "Count": "0",
+    "Delete": "no",
+    "Quarintine": "yes",
+    "Date": DateTime.now().toString(),
+    "UUID": "10",
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +35,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
           Center(
             child: FocusTraversalGroup(
               child: Form(
+                key: _formKey,
                 autovalidateMode: AutovalidateMode.always,
                 onChanged: () {
                   Form.of(primaryFocus!.context!)!.save();
@@ -53,47 +47,43 @@ class _ReviewsFormState extends State<ReviewsForm> {
                       child: ConstrainedBox(
                         constraints: BoxConstraints.tight(const Size(200, 50)),
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "A Name is required";
+                            } else {
+                              return null;
+                            }
+                          },
                           decoration: const InputDecoration(
                             icon: Icon(Icons.person),
                             labelText: 'First Name',
                           ),
                           onSaved: (String? value) {
-                            debugPrint('Value for field  as "$value"');
-                            name = value;
+                            Name = value;
                           },
                         ),
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: ConstrainedBox(
-                    //     constraints: BoxConstraints.tight(const Size(200, 50)),
-                    //     child: TextFormField(
-                    //       decoration: const InputDecoration(
-                    //         icon: Icon(Icons.person),
-                    //         labelText: 'Last Name',
-                    //       ),
-                    //       onSaved: (String? value) {
-                    //         debugPrint('Value for field  as "$value"');
-                    //         lastName = value;
-                    //       },
-                    //     ),
-                    //   ),
-                    // ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ConstrainedBox(
                         constraints: BoxConstraints.tight(const Size(200, 50)),
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Email address is required";
+                            } else {
+                              return null;
+                            }
+                          },
                           decoration: const InputDecoration(
                             fillColor: Colors.white,
                             icon: Icon(Icons.person),
-                            hintText: '100',
+                            hintText: 'foo@bar.com',
                             labelText: 'Email',
                           ),
                           onSaved: (String? value) {
-                            debugPrint('Value for field  as "$value"');
-                            email = value;
+                            Email = value;
                           },
                         ),
                       ),
@@ -110,8 +100,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                               keyboardType: TextInputType.multiline,
                               maxLines: null,
                               onSaved: (String? value) {
-                                debugPrint('Value for field  as "$value"');
-                                message = value;
+                                Message = value;
                               },
                             ),
                           ),
@@ -130,61 +119,73 @@ class _ReviewsFormState extends State<ReviewsForm> {
               ),
             ),
           ),
-          postReviewButton(context),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            Color.fromARGB(0, 0, 0, 0),
+                            Colors.blueAccent,
+                            Color.fromARGB(0, 0, 0, 0),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(16.0),
+                      foregroundColor: Colors.white,
+                      textStyle: const TextStyle(fontSize: 40),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Processing Data")),
+                        );
+                      }
+                      var now = DateTime.now();
+                      var year = now.year;
+                      var month = now.month;
+                      var day = now.day;
+                      var hr = now.hour;
+                      var min = now.minute;
+                      String revs = "reviews";
+                      var docname = revs +
+                          year.toString() +
+                          month.toString() +
+                          day.toString() +
+                          hr.toString() +
+                          min.toString();
+                      var UUID = year.toString() +
+                          month.toString() +
+                          day.toString() +
+                          hr.toString() +
+                          min.toString();
+                      docData["Name"] = Name.toString();
+                      docData["Email"] = Email.toString();
+                      docData['Sig'] = Name.toString();
+                      docData['Message'] = Message.toString();
+                      docData['UUID'] = UUID.toString();
+                      var db = FirebaseFirestore.instance;
+                      db.collection("reviews").doc(docname).set(docData);
+                      Navigator.pop(context);
+                    },
+                    child: const Center(child: Text('Post Review')),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-Padding postReviewButton(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.all(10.0),
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(4),
-      child: Stack(
-        children: <Widget>[
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: <Color>[
-                    Color.fromARGB(0, 0, 0, 0),
-                    Colors.blueAccent,
-
-                    // Color.fromARGB(255, 65, 62, 209),
-                    Color.fromARGB(0, 0, 0, 0),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.all(16.0),
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 40),
-            ),
-            onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute<void>(
-              //     builder: (BuildContext context) {
-              //       return Scaffold(
-              //         appBar: AppBar(
-              //           title: const Text("Back"),
-              //           backgroundColor: Colors.blue,
-              //         ),
-              //         body: const ReviewsForm(),
-              //       );
-              //     },
-              //   ),
-              // );
-            },
-            child: const Center(child: Text('Post Review')),
-          ),
-        ],
-      ),
-    ),
-  );
-}

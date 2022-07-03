@@ -43,7 +43,7 @@ class SmallReview extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
               stream:
-                  FirebaseFirestore.instance.collection("reviews").snapshots(),
+                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -100,10 +100,10 @@ class ASmallReview extends StatefulWidget {
   });
 
   @override
-  _ASmallReviewState createState() => _ASmallReviewState();
+  ASmallReviewState createState() => ASmallReviewState();
 }
 
-class _ASmallReviewState extends State<ASmallReview> {
+class ASmallReviewState extends State<ASmallReview> {
   @override
   Widget build(BuildContext context) {
     return SmallReviewCard(message: widget.message, sig: widget.sig);
@@ -177,7 +177,7 @@ class NormalReview extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
               stream:
-                  FirebaseFirestore.instance.collection("reviews").snapshots(),
+                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -234,10 +234,10 @@ class ANormalReview extends StatefulWidget {
   });
 
   @override
-  _ANormalReviewState createState() => _ANormalReviewState();
+  ANormalReviewState createState() => ANormalReviewState();
 }
 
-class _ANormalReviewState extends State<ANormalReview> {
+class ANormalReviewState extends State<ANormalReview> {
   @override
   Widget build(BuildContext context) {
     return NormalReviewCard(message: widget.message, sig: widget.sig);
@@ -311,7 +311,7 @@ class WideReview extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
               stream:
-                  FirebaseFirestore.instance.collection("reviews").snapshots(),
+                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -368,10 +368,10 @@ class AWideReview extends StatefulWidget {
   });
 
   @override
-  _AWideReviewState createState() => _AWideReviewState();
+  AWideReviewState createState() => AWideReviewState();
 }
 
-class _AWideReviewState extends State<AWideReview> {
+class AWideReviewState extends State<AWideReview> {
   @override
   Widget build(BuildContext context) {
     return WideReviewCard(message: widget.message, sig: widget.sig);
