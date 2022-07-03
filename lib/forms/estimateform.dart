@@ -204,7 +204,7 @@ class _EstimateFormState extends State<EstimateForm> {
                                     day.toString() +
                                     hr.toString() +
                                     min.toString();
-                                var UUID = year.toString() +
+                                var uuid = year.toString() +
                                     month.toString() +
                                     day.toString() +
                                     hr.toString() +
@@ -216,29 +216,12 @@ class _EstimateFormState extends State<EstimateForm> {
                                 docData['telephone'] = telephone.toString();
                                 docData['email'] = email.toString();
                                 docData['message'] = message.toString();
-                                docData['uuid'] = UUID.toString();
+                                docData['uuid'] = uuid.toString();
                                 var db = FirebaseFirestore.instance;
                                 db
                                     .collection("reviews")
                                     .doc(docname)
                                     .set(docData);
-                                print(docname);
-                                print(docData);
-
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute<void>(
-                                //     builder: (BuildContext context) {
-                                //       return Scaffold(
-                                //         appBar: AppBar(
-                                //           title: const Text("Back"),
-                                //           backgroundColor: Colors.blue,
-                                //         ),
-                                //         body: const EstimateForm(),
-                                //       );
-                                //     },
-                                //   ),
-                                // );
                                 Navigator.pop(context);
                               },
                               child: const Center(
