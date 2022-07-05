@@ -47,13 +47,13 @@ class _ReviewsFormState extends State<ReviewsForm> {
                       child: ConstrainedBox(
                         constraints: BoxConstraints.tight(const Size(200, 50)),
                         child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "A Name is required";
-                            } else {
-                              return null;
-                            }
-                          },
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return "A Name is required";
+                          //   } else {
+                          //     return null;
+                          //   }
+                          // },
                           decoration: const InputDecoration(
                             icon: Icon(Icons.person),
                             labelText: 'First Name',
@@ -69,13 +69,13 @@ class _ReviewsFormState extends State<ReviewsForm> {
                       child: ConstrainedBox(
                         constraints: BoxConstraints.tight(const Size(200, 50)),
                         child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Email address is required";
-                            } else {
-                              return null;
-                            }
-                          },
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return "Email address is required";
+                          //   } else {
+                          //     return null;
+                          //   }
+                          // },
                           decoration: const InputDecoration(
                             fillColor: Colors.white,
                             icon: Icon(Icons.person),
