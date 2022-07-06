@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/vids/smallvidpage.dart';
+// import '/vids/smallvidpage.dart';
 import 'atsflutteryoutube.dart';
 
 class VideoGalleryButton extends StatelessWidget {
@@ -61,7 +61,7 @@ class SmallVideoGalleryButton extends StatelessWidget {
                           backgroundColor: Colors.blue,
                         ),
                         // body: const SmallVideoPlayer(),
-                        body: YoutubePlayerDemo(),
+                        body: const YoutubePlayerDemo(),
                       );
                     },
                   ),
@@ -115,7 +115,7 @@ class WideVideoGalleryButton extends StatelessWidget {
                           title: const Text("Videos"),
                           backgroundColor: Colors.blue,
                         ),
-                        body: YoutubePlayerDemo(),
+                        body: const YoutubePlayerDemo(),
                       );
                     },
                   ),
@@ -172,7 +172,7 @@ class NormalVideoGalleryButton extends StatelessWidget {
                           title: const Text("Videos"),
                           backgroundColor: Colors.blue,
                         ),
-                        body: YoutubePlayerDemo(),
+                        body: const YoutubePlayerDemo(),
                       );
                     },
                   ),
