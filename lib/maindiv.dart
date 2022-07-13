@@ -200,13 +200,13 @@ class WideMainDiv extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
-          // margin: const EdgeInsets.only(top: 20),
-          height: 500,
-          width: 500,
-          alignment: const Alignment(0, 0),
+          // margin: const EdgeInsets.only(top: 100, bottom: 100),
+          height: 800,
+          // width: 850,
+          // alignment: const Alignment(0, 0),
           decoration: BoxDecoration(
               color: const Color.fromARGB(255, 47, 28, 218),
               border: Border.all(

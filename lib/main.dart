@@ -77,18 +77,38 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth > 1024) {
             return ListView(
-              children: const <Widget>[
+              children: <Widget>[
                 // BannerImage(),
-                EstimateButton(),
-                GroupImage(),
-                MissionText(),
-                LogDropVid(),
+                const EstimateButton(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const <Widget>[
+                    GroupImage(),
+                    MissionText(),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const <Widget>[
+                    LogDropVid(),
+                    RigOutVid(),
+                    TopOutVid(),
+                  ],
+                ),
                 MainDiv(),
-                RigOutVid(),
                 Reviews(),
-                ReviewsButton(),
-                TopOutVid(),
-                Footer(),
+                    
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: const <Widget>[
+                //     Reviews(),
+                //     MainDiv(),
+                    
+                //   ],
+                // ),
+                const ReviewsButton(),
+                const Footer(),
               ],
             );
             // } else if (constraints.maxWidth <= 1024 &&

@@ -23,21 +23,40 @@ class WideGroupImage extends StatelessWidget {
   const WideGroupImage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
-      child: Container(
-        height: 350.0,
-        width: 650.0,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.contain,
-            image: AssetImage('images/curt.webp'),
-          ),
+    return Row(
+      children: [
+        Image.asset(
+          fit: BoxFit.contain,
+          width: 550.0,
+          'images/curt.webp',
         ),
-      ),
+      ],
     );
   }
 }
+
+// class WideGroupImage extends StatelessWidget {
+//   const WideGroupImage({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: Padding(
+//         padding: const EdgeInsets.only(bottom: 12.0),
+//         child: Container(
+//           // height: 281.0,
+//           // width: 500.0,
+//           decoration: const BoxDecoration(
+//             image: DecorationImage(
+//               fit: BoxFit.contain,
+//               image: AssetImage('images/curt.webp'),
+
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class NormalGroupImage extends StatelessWidget {
   const NormalGroupImage({Key? key}) : super(key: key);

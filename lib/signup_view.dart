@@ -9,27 +9,26 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          title: const Text('Create Account'),
-          centerTitle: true,
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        title: const Text('Create Account'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _CreateAccountEmail(emailController: _emailController),
+            const SizedBox(height: 30.0),
+            _CreateAccountPassword(passwordController: _passwordController),
+            const SizedBox(height: 30.0),
+            _SubmitButton(
+              email: _emailController.text,
+              password: _passwordController.text,
+            ),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _CreateAccountEmail(emailController: _emailController),
-              const SizedBox(height: 30.0),
-              _CreateAccountPassword(passwordController: _passwordController),
-              const SizedBox(height: 30.0),
-              _SubmitButton(
-                email: _emailController.text,
-                password: _passwordController.text,
-              ),
-            ],
-          ),
-        ),
-      
+      ),
     );
   }
 }

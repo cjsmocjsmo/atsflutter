@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'reviewsbutton.dart';
 
 class Reviews extends StatelessWidget {
   const Reviews({Key? key}) : super(key: key);
@@ -42,8 +43,10 @@ class SmallReview extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
-              stream:
-                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection("reviews")
+                  .where("Approved", isEqualTo: 'yes')
+                  .snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -176,8 +179,10 @@ class NormalReview extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
-              stream:
-                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection("reviews")
+                  .where("Approved", isEqualTo: 'yes')
+                  .snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -292,13 +297,18 @@ class WideReview extends StatelessWidget {
   const WideReview({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-// Column WideReviewsDiv(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return 
+    Column(
+      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
+        const SizedBox(width: 10, height: 50),
+        // const WideReviewsButton(),
+        // const SizedBox(width: 15, height: 10),
         Container(
-          margin: const EdgeInsets.only(top: 20),
-          height: 500,
+          margin: const EdgeInsets.only(left: 20),
+          height: 600,
+          width: 500,
           alignment: const Alignment(0, 0),
           decoration: BoxDecoration(
               color: const Color.fromARGB(255, 47, 28, 218),
@@ -310,8 +320,10 @@ class WideReview extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: StreamBuilder<QuerySnapshot>(
-              stream:
-                  FirebaseFirestore.instance.collection("reviews").where("Approved", isEqualTo: 'yes').snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection("reviews")
+                  .where("Approved", isEqualTo: 'yes')
+                  .snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 return !snapshot.hasData
                     ? const Center(child: CircularProgressIndicator())
@@ -338,6 +350,7 @@ class WideReview extends StatelessWidget {
           ),
         ),
       ],
+   
     );
   }
 }

@@ -17,23 +17,20 @@ class MissionText extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth > 1024) {
         return Container(
-          height: 350,
-          width: 500,
+          height: 450,
+          width: 400,
           alignment: const Alignment(0, 0),
           color: Colors.black,
           child: Padding(
             padding: const EdgeInsets.only(left: 17.0, right: 17.0),
-            child:
-                //   ConstrainedBox(
-                //     constraints: BoxConstraints.tight(const Size(500, 220)),
-                //     child:
-                Text(
-              missionText,
-              style: const TextStyle(
-                fontSize: 22,
-                color: Colors.white,
+            child: Expanded(
+              child: Text(
+                missionText,
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: Colors.white,
+                ),
               ),
-              //     ),
             ),
           ),
         );
@@ -61,7 +58,6 @@ class MissionText extends StatelessWidget {
         return Container(
           height: 380,
           width: 500,
-          
           alignment: const Alignment(0, 0),
           color: Colors.black,
           child: Padding(
@@ -134,4 +130,3 @@ class SmallMissionText extends StatelessWidget {
     );
   }
 }
-
