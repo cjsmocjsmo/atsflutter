@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AlphaTreeService
+Comment=Super Cool
+Exec=atsflutter
+Icon=${SNAP}/meta/gui/alphatreeservice.png
+Terminal=false
+Type=Application
+Catagories=Education

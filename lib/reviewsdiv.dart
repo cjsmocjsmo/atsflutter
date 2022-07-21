@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'reviewsbutton.dart';
+// import 'reviewsbutton.dart';
 
 class Reviews extends StatelessWidget {
   const Reviews({Key? key}) : super(key: key);
@@ -90,6 +90,7 @@ class ASmallReview extends StatefulWidget {
   final String date;
 
   const ASmallReview({
+    Key? key,
     required this.approved,
     required this.count,
     required this.delete,
@@ -100,7 +101,7 @@ class ASmallReview extends StatefulWidget {
     required this.sig,
     required this.uuid,
     required this.date,
-  });
+  }) : super(key: key);
 
   @override
   ASmallReviewState createState() => ASmallReviewState();
@@ -226,6 +227,7 @@ class ANormalReview extends StatefulWidget {
   final String date;
 
   const ANormalReview({
+    Key? key,
     required this.approved,
     required this.count,
     required this.delete,
@@ -236,7 +238,7 @@ class ANormalReview extends StatefulWidget {
     required this.sig,
     required this.uuid,
     required this.date,
-  });
+  }) : super(key: key);
 
   @override
   ANormalReviewState createState() => ANormalReviewState();
@@ -297,8 +299,7 @@ class WideReview extends StatelessWidget {
   const WideReview({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return 
-    Column(
+    return Column(
       // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -350,7 +351,6 @@ class WideReview extends StatelessWidget {
           ),
         ),
       ],
-   
     );
   }
 }
@@ -368,6 +368,7 @@ class AWideReview extends StatefulWidget {
   final String date;
 
   const AWideReview({
+    Key? key,
     required this.approved,
     required this.count,
     required this.delete,
@@ -378,7 +379,7 @@ class AWideReview extends StatefulWidget {
     required this.sig,
     required this.uuid,
     required this.date,
-  });
+  }) : super(key: key);
 
   @override
   AWideReviewState createState() => AWideReviewState();

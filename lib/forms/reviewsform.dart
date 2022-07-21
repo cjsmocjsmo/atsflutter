@@ -13,17 +13,17 @@ class _ReviewsFormState extends State<ReviewsForm> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emalController = TextEditingController();
   TextEditingController messageController = TextEditingController();
-  String? Name;
+  String? name;
 
-  String? Email;
-  String? Message;
+  String? email;
+  String? message;
   final docData = {
     "Approved": "no",
     "Count": "0",
     "Delete": "no",
     "Quarintine": "yes",
     "Date": DateTime.now().toString(),
-    "UUID": "10",
+    "uuid": "10",
   };
 
   @override
@@ -49,17 +49,17 @@ class _ReviewsFormState extends State<ReviewsForm> {
                         child: TextFormField(
                           // validator: (value) {
                           //   if (value == null || value.isEmpty) {
-                          //     return "A Name is required";
+                          //     return "A name is required";
                           //   } else {
                           //     return null;
                           //   }
                           // },
                           decoration: const InputDecoration(
                             icon: Icon(Icons.person),
-                            labelText: 'First Name',
+                            labelText: 'First name',
                           ),
                           onSaved: (String? value) {
-                            Name = value;
+                            name = value;
                           },
                         ),
                       ),
@@ -71,7 +71,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                         child: TextFormField(
                           // validator: (value) {
                           //   if (value == null || value.isEmpty) {
-                          //     return "Email address is required";
+                          //     return "email address is required";
                           //   } else {
                           //     return null;
                           //   }
@@ -80,10 +80,10 @@ class _ReviewsFormState extends State<ReviewsForm> {
                             fillColor: Colors.white,
                             icon: Icon(Icons.person),
                             hintText: 'foo@bar.com',
-                            labelText: 'Email',
+                            labelText: 'email',
                           ),
                           onSaved: (String? value) {
-                            Email = value;
+                            email = value;
                           },
                         ),
                       ),
@@ -100,7 +100,7 @@ class _ReviewsFormState extends State<ReviewsForm> {
                               keyboardType: TextInputType.multiline,
                               maxLines: null,
                               onSaved: (String? value) {
-                                Message = value;
+                                message = value;
                               },
                             ),
                           ),
@@ -163,16 +163,16 @@ class _ReviewsFormState extends State<ReviewsForm> {
                           day.toString() +
                           hr.toString() +
                           min.toString();
-                      var UUID = year.toString() +
+                      var uuid = year.toString() +
                           month.toString() +
                           day.toString() +
                           hr.toString() +
                           min.toString();
-                      docData["Name"] = Name.toString();
-                      docData["Email"] = Email.toString();
-                      docData['Sig'] = Name.toString();
-                      docData['Message'] = Message.toString();
-                      docData['UUID'] = UUID.toString();
+                      docData["name"] = name.toString();
+                      docData["email"] = email.toString();
+                      docData['Sig'] = name.toString();
+                      docData['message'] = message.toString();
+                      docData['uuid'] = uuid.toString();
                       var db = FirebaseFirestore.instance;
                       db.collection("reviews").doc(docname).set(docData);
                       Navigator.pop(context);

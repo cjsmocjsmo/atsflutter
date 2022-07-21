@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -131,7 +131,7 @@ class YoutubePlayerDemoState extends State<YoutubePlayerDemo> {
             itemCount: videosList.length,
             physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              print(videosList[index]);
+              // print(videosList[index]);
               return GestureDetector(
                 onTap: () {
                   final newCode = videosList[index].youtubeId;

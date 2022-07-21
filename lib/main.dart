@@ -6,7 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 import 'misc.dart';
-import 'adminpage.dart';
+// import 'adminpage.dart';
 import 'login_view.dart';
 import 'message.dart';
 import 'banner.dart';
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(width: 15, height: 10),
           _callMeIcon(context),
           const SizedBox(width: 15, height: 10),
-          const AdminPanel(),
+          LoginView(),
           const SizedBox(width: 15, height: 10),
           // const SizedBox(width: 20, height: 10),
         ],
@@ -96,8 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     TopOutVid(),
                   ],
                 ),
-                MainDiv(),
-                Reviews(),
+                const MainDiv(),
+                const Reviews(),
                     
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

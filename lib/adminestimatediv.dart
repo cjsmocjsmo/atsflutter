@@ -62,6 +62,7 @@ class AEstimate extends StatefulWidget {
   final String uuid;
 
   const AEstimate({
+    Key? key,
     required this.name,
     required this.address,
     required this.citystate,
@@ -70,7 +71,7 @@ class AEstimate extends StatefulWidget {
     required this.email,
     required this.message,
     required this.uuid,
-  });
+  }) : super(key: key);
 
   @override
   AEstimateState createState() => AEstimateState();
